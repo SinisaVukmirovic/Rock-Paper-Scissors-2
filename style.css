@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+:root {
+  --primary-color: cornflowerblue;
+  --dark-color: #333;
+  --light-color: #eee;
+  --lose-color: coral;
+  --win-color: lime;
+  --modal-duration: .5s;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background: var(--dark-color);
+  color: var(--light-color);
+}
+
+.container {
+  max-width: 700px;
+  margin: 3em auto;
+  overflow: hidden;
+  padding: 0 2em;
+  text-align: center;
+}
+
+.restart-btn {
+  visibility: hidden;
+  /* display: none; */
+  background: var(--light-color);
+  color: #333;
+  padding: .4em 1.3em;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  margin: 1em;
+}
+
+.restart-btn:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.header {
+  text-align: center;
+  margin: 1em 0;
+}
+
+.header h1 {
+  margin-bottom: 1em;
+  padding: 1em;
+  background: var(--primary-color);
+  width: 100%;
+}
+
+.score {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-size: 1.5rem;
+  margin-bottom: 3em;
+}
+
+.score p {
+  padding: .5em;
+}
+
+.score p:first-child {
+  background: var(--primary-color);
+  color: var(--light-color);
+}
+
+.score p:last-child {
+  background: var(--light-color);
+  color: var(--dark-color)
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  margin-top: 3em;
+  text-align: center;
+}
+
+.choice {
+  cursor: pointer;
+}
+
+.choice:hover {
+  color: var(--primary-color);
+}
+
+.text-win {
+  color: var(--win-color);
+}
+
+.text-lose {
+  color: var(--lose-color);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background: var(--dark-color);
+  color: var(--light-color);
+  text-align: center;
+  margin: 10% auto;
+  width: 350px;
+  border-radius: 10px;
+  padding: 3em;
+  box-shadow: 0 5px 8px 0 rgba(255, 255, 255, 0.2), 0 7px 20px 0 rgba(255, 255, 255, 0.17);
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+}
+
+.modal-content h1 {
+  margin-bottom: 1em;
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  margin-top: 1em;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .choice {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 500px) {
+  .choice {
+    font-size: 40px;
+  }
+}
